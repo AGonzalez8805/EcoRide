@@ -10,16 +10,16 @@ require_once "templates/header.php";
         </div>
         <form id="formulaireVoyage" class="flex flex-col sm:flex-row w-full sm:w-4/5 lg:w-3/4 xl:w-2/3 mx-auto px-3 sm:px-4 lg:px-8 space-y-4 sm:space-y-0 sm:space-x-3 md:space-x-4">
             <div class="relative flex-grow w-full max-w-full">
-                <label for="depart" class="leading text-sm text-gray-400">Départ</label>
-                <input type="text" id="depart" name="depart" class="w-full bg-stone-200 rounded-full border-y-2 border-green-700 focus:border-green-200 focus:ring-2 focus:ring-green-400 focus:bg-transparent text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <label for="depart" class="leading text-sm">Départ</label>
+                <input type="text" id="depart" name="depart" class="w-full bg-stone-300 rounded-full border-y-2 border-green-700 focus:border-green-200 focus:ring-2 focus:ring-green-400 focus:bg-transparent outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative flex-grow w-full max-w-full">
-                <label for="arriver" class="leading text-sm text-gray-400">Arriver</label>
-                <input type="text" id="arriver" name="arriver" class="w-full bg-stone-200 rounded-full border-y-2 border-green-700 focus:border-green-200 focus:ring-2 focus:ring-green-400 focus:bg-transparent text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <label for="arriver" class="leading text-sm">Arriver</label>
+                <input type="text" id="arriver" name="arriver" class="w-full bg-stone-300 rounded-full border-y-2 border-green-700 focus:border-green-200 focus:ring-2 focus:ring-green-400 focus:bg-transparent outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative flex-grow w-full max-w-full">
-                <label for="date" class="leading text-sm text-gray-400">Date</label>
-                <input type="date" id="date" name="date" class="w-full bg-stone-200 rounded-full border-y-2 border-green-700 focus:border-green-200 focus:ring-2 focus:ring-green-400 focus:bg-transparent text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <label for="date" class="leading text-sm">Date</label>
+                <input type="date" id="date" name="date" class="w-full bg-stone-300 rounded-full border-y-2 border-green-700 focus:border-green-200 focus:ring-2 focus:ring-green-400 focus:bg-transparent outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <button type="submit" class="mt-4 sm:mt-6 text-white bg-green-700 border-0 py-2 px-6 sm:px-8 focus:outline-none hover:bg-green-200 rounded-full text-lg w-full sm:w-auto self-end"><i class="fa-solid fa-magnifying-glass-location"></i></button>
         </form>

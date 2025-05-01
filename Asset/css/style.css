@@ -1,0 +1,12 @@
+nav, footer{
+    font-family: "Roboto", sans-serif;
+}
+
+h1{
+    font-family: "Fira Code", monospace;
+    text-decoration: underline;
+}
+
+p, .formulaire{
+    font-family: "Inter", sans-serif;
+}
