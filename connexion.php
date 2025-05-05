@@ -27,14 +27,14 @@
                 </label>
                 <input type="password" id="password" name="password" class="w-full bg-stone-300 focus:bg-stone-200 focus:ring-4 focus:ring-green-700 rounded border outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
-            <button class="bg-stone-300 rounded-full border-x-6 border-green-700 py-2 px-8 focus:outline-none hover:bg-stone-200 rounded text-lg">
+            <button type="submit" class="bg-stone-300 rounded-full border-x-6 border-green-700 py-2 px-8 focus:outline-none hover:bg-stone-200 rounded text-lg">
                 <font style="vertical-align: inherit;">
                     <font style="vertical-align: inherit;">C'est partie</font>
                 </font>
             </button>
             <button>
                 <font style="text-decoration: underline;">
-                    <a href="/inscription.php"> S'inscrire</a>
+                    <a href="/inscription.php"> Vous n'avez pas de compte ? Inscrivez-vous ici !</a>
                 </font>
             </button>
         </form>

@@ -9,42 +9,64 @@
                 </font>
             </h2>
             <div class="relative mb-4">
-                <label for="email" class="leading-7 text-sm">
+                <label for="EmailInput" class="leading-7 text-sm">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit; font-size:1rem; ">Email</font>
                     </font>
                 </label>
-                <input type="email" id="email" name="email" class="w-full bg-stone-300 focus:bg-stone-200 focus:ring-4 focus:ring-green-600 rounded border border-black text-black outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <input type="email" id="EmailInput" name="EmailInput" class="w-full bg-stone-300 focus:bg-stone-200 rounded border text-black outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative mb-4">
-                <label for="username" class="leading-7 text-sm">
+                <label for="NomInput" class="leading-7 text-sm">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit; font-size:1rem; ">Nom</font>
+                    </font>
+                </label>
+                <input type="text" id="NomInput" name="NomInput" class="w-full bg-stone-300 focus:bg-stone-200 rounded border text-black outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <div class="relative mb-4">
+                <label for="PrenomInput" class="leading-7 text-sm">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit; font-size:1rem; ">Prenom</font>
+                    </font>
+                </label>
+                <input type="text" id="PrenomInput" name="PrenomInput" class="w-full bg-stone-300 focus:bg-stone-200 rounded border text-black outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <div class="relative mb-4">
+                <label for="PseudoInput" class="leading-7 text-sm">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit; font-size:1rem; ">Pseudo</font>
                     </font>
                 </label>
-                <input type="text" id="username" name="username" class="w-full bg-stone-300 focus:bg-stone-200 focus:ring-4 focus:ring-green-600 rounded border border-black text-black outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <input type="text" id="PseudoInput" name="PseudoInput" class="w-full bg-stone-300 focus:bg-stone-200 rounded border text-black outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative mb-4">
-                <label for="password" class="leading-7 text-sm">
+                <label for="PasswordInput" class="leading-7 text-sm">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit; font-size:1rem ">Mot de passe</font>
                     </font>
                 </label>
-                <input type="password" id="password" name="password" class="w-full bg-stone-300 focus:bg-stone-200 focus:ring-4 focus:ring-green-600 rounded border border-black text-black outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <input type="password" id="PasswordInput" name="PasswordInput" class="w-full bg-stone-300 focus:bg-stone-200 rounded border text-black outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <div>
+                    Le mot de passe doit contenir : Au moins 9 caractères, comprenant au moins 1 lettre majuscule,1 minuscule, 1 chiffre, et 1 caractère spéciale
+                </div>
             </div>
             <div class="relative mb-4">
-                <label for="password" class="leading-7 text-sm">
+                <label for="ValidatePasswordInput" class="leading-7 text-sm">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit; font-size:1rem ">Confirmation du mot de passe</font>
                     </font>
                 </label>
-                <input type="password" id="password" name="password" class="w-full bg-stone-300 focus:bg-stone-200 focus:ring-4 focus:ring-green-600 rounded border border-black text-black outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <input type="password" id="ValidatePasswordInput" name="ValidatePasswordInput" class="w-full bg-stone-300 focus:bg-stone-200 rounded border text-black outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
-            <button type="submit" class="bg-stone-300 rounded-full border-x-6 border-green-600 py-2 px-8 focus:outline-none hover:bg-stone-200 rounded text-lg">
+            <button type="submit" id="inscriptionInput" class="bg-stone-300 rounded-full border-x-6 border-green-600 py-2 px-8 rounded text-lg">
                 <font style="vertical-align: inherit;">
                     <font style="vertical-align: inherit;">S'inscrire</font>
                 </font>
             </button>
+            <div class="text-center pt-3">
+                <a href="/connexion">Vous avez déjà un compte ? Connecter-vous ici !</a>
+            </div>
         </form>
         <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
             <img src="/Asset/images/LOGO EcoRide  avec une voiture écologie.jpg" alt="logo">
