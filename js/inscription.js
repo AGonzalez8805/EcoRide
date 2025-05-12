@@ -1,5 +1,3 @@
-// Implementer le JS de ma page inscription
-
 // Sélection des éléments du formulaire
 const inputNom = document.getElementById("NomInput");
 const inputPrenom = document.getElementById("PrenomInput");
@@ -10,12 +8,12 @@ const inputValidationPassword = document.getElementById("ValidatePasswordInput")
 const btnValidation = document.getElementById("inscriptionInput");
 
 // Ecouteurs d'événements pour la validation en temps réel
-inputNom.addEventListener("input", () => validateForm(inputNom));
-inputPrenom.addEventListener("input", () => validateForm(inputPrenom));
-inputMail.addEventListener("input", () => validateForm(inputMail));
-inputPseudo.addEventListener("input", () => validateForm(inputPseudo));
-inputPassword.addEventListener("input", () => validateForm(inputPassword));
-inputValidationPassword.addEventListener("input", () => validateForm(inputValidationPassword));
+inputNom.addEventListener("keyup", validateForm);
+inputPrenom.addEventListener("keyup", validateForm);
+inputMail.addEventListener("keyup", validateForm);
+inputPseudo.addEventListener("keyup", validateForm);
+inputPassword.addEventListener("keyup", validateForm);
+inputValidationPassword.addEventListener("keyup", validateForm);
 
 // Fonction permettant de valider tout le formulaire
 function validateForm() {
@@ -26,7 +24,7 @@ function validateForm() {
     const passwordOk = validatePassword(inputPassword);
     const passwordConfirmOk = validateConfirmationPassword(inputPassword, inputValidationPassword);
 
-    if (nomOk && prenomOk && mailOk && passwordOk && passwordConfirmOk) {
+    if (nomOk && prenomOk && pseudoOk && mailOk && passwordOk && passwordConfirmOk) {
         btnValidation.disabled = false;
     }
     else {
@@ -85,7 +83,7 @@ function validateConfirmationPassword(inputPwd, inputConfirmPwd) {
 
 
 function validateRequired(input) {
-    if (input.value.trim() != '') {
+    if (input.value != '') {
         input.classList.add("border-green-600");
         input.classList.remove("border-red-600");
         return true;

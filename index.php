@@ -6,7 +6,7 @@ require_once "templates/header.php";
 <section class="body-font">
     <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-col text-center w-full mb-6 sm:mb-8 lg:mb-12 pt-10 sm:pt-6 lg:pt-10">
-            <h1 class="text-2xl sm:text-2xl lg:text-3xl font-medium title-font mb-2 sm:mb-3 lg:mb-4">Où allons-nous ?</h1>
+            <h1 class="text-2xl sm:text-2xl lg:text-3xl title-font mb-2 sm:mb-3 lg:mb-4">Où allons-nous ?</h1>
         </div>
         <form id="formulaireVoyage">
             <div class="flex lg:w-4/5 w-full md:flex-row flex-col ml-auto mr-0 px-8 md:px-0 items-end md:space-x-4 md:space-y-0 space-y-4">

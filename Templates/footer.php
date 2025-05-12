@@ -1,4 +1,4 @@
-<footer class="text-stone-950 bg-stone-400 body-font">
+<footer class="text-stone-950 bg-stone-400 body-font mt-auto">
     <div class="container px-5 py-8 mx-auto flex items-center md:flex-row flex-col">
         <p class="sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4""> contact@ecoride.fr</p>
         <div class=" inline-flex sm:ml-4 md:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
@@ -7,7 +7,11 @@
     </div>
 </footer>
 
-<script src="/Asset/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script src="https://kit.fontawesome.com/f5ae6a01b5.js" crossorigin="anonymous"></script>
+<script src="/js/inscription.js"></script>
+<script src="/js/connexion.js"></script>
+<script src="/js/script.js"></script>
 </body>
 
 </html>
