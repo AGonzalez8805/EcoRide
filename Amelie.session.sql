@@ -1,0 +1,78 @@
+-- CREATE DATABASE EcoRide;
+USE EcoRide;
+-- Créer la table Utilisateur
+CREATE TABLE utilisateur(
+    id Int Auto_increment NOT NULL,
+    nom Varchar (50) NOT NULL,
+    prenom Varchar (50) NOT NULL,
+    email Varchar (100) NOT NULL,
+    password Varchar (255) NOT NULL,
+    telephone Int NOT NULL,
+    adresse Varchar (100) NOT NULL,
+    dateNaissance Date NOT NULL,
+    photo Blob NOT NULL,
+    pseudo Varchar (50) NOT NULL,
+    role Varchar (50) NOT NULL,
+    credit Int NOT NULL,
+    CONSTRAINT utilisateur_PK PRIMARY KEY (id)
+) ENGINE = InnoDB;
+-- Créer la table voiture
+CREATE TABLE voiture(
+    id Int Auto_increment NOT NULL,
+    modele Varchar (50) NOT NULL,
+    immatriculation Varchar (50) NOT NULL,
+    energie Varchar (50) NOT NULL,
+    couleur Varchar (50) NOT NULL,
+    marque Varchar (50) NOT NULL,
+    datePremierImmatriculation Date NOT NULL,
+    id_utilisateur Int NOT NULL,
+    CONSTRAINT voiture_PK PRIMARY KEY (id),
+    CONSTRAINT voiture_utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id)
+) ENGINE = InnoDB;
+-- Créer la table covoiturage
+CREATE TABLE covoiturage(
+    id Int Auto_increment NOT NULL,
+    dateDepart Date NOT NULL,
+    heureDepart Varchar (50) NOT NULL,
+    lieuDepart Varchar (50) NOT NULL,
+    dateArrivee Date NOT NULL,
+    heureArrivee Varchar (50) NOT NULL,
+    lieuArrivee Varchar (50) NOT NULL,
+    statut Varchar (50) NOT NULL,
+    nbPlace Int NOT NULL,
+    prixPersonne Float NOT NULL,
+    id_utilisateur Int NOT NULL,
+    id_voiture Int NOT NULL,
+    CONSTRAINT covoiturage_PK PRIMARY KEY (id),
+    CONSTRAINT covoiturage_utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id),
+    CONSTRAINT covoiturage_voiture0_FK FOREIGN KEY (id_voiture) REFERENCES voiture(id)
+) ENGINE = InnoDB;
+-- Créer la table administrateur
+CREATE TABLE administrateur(
+    id Int Auto_increment NOT NULL,
+    pseudo Varchar (50) NOT NULL,
+    email Varchar (100) NOT NULL,
+    CONSTRAINT administrateur_PK PRIMARY KEY (id)
+) ENGINE = InnoDB;
+-- Créer la table employe
+CREATE TABLE employe(
+    id Int Auto_increment NOT NULL,
+    pseudo Varchar (50) NOT NULL,
+    email Varchar (100) NOT NULL,
+    id_administrateur Int NOT NULL,
+    CONSTRAINT employe_PK PRIMARY KEY (id),
+    CONSTRAINT employe_administrateur_FK FOREIGN KEY (id_administrateur) REFERENCES administrateur(id)
+) ENGINE = InnoDB;
+-- Créer la table avis
+CREATE TABLE avis(
+    id Int Auto_increment NOT NULL,
+    commentaire Varchar (50) NOT NULL,
+    note Varchar (50) NOT NULL,
+    statut Varchar (50) NOT NULL,
+    datePublication Date NOT NULL,
+    id_utilisateur Int NOT NULL,
+    id_employe Int NOT NULL,
+    CONSTRAINT avis_PK PRIMARY KEY (id),
+    CONSTRAINT avis_utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id),
+    CONSTRAINT avis_employe0_FK FOREIGN KEY (id_employe) REFERENCES employe(id)
+) ENGINE = InnoDB;
