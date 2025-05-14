@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  app:
+    image: php:8.3-fpm-alpine
+    container_name: php-fpm
+    volumes:
+      - ./:/var/www/html
+    expose:
+      - "9000"
+    networks:
+      - app-network
+
+  webserver:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/html
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
