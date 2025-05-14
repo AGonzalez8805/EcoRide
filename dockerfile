@@ -1,4 +1,3 @@
-FROM php:8.2-cli
+FROM php:8.3-fpm-alpine
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 WORKDIR /var/www/html
-COPY . /var/www/html
-CMD ["php", "index.php"]

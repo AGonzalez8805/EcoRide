@@ -2,7 +2,7 @@
     <div class="container px-5 py-8 mx-auto flex items-center md:flex-row flex-col">
         <p class="sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4""> contact@ecoride.fr</p>
         <div class=" inline-flex sm:ml-4 md:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-            <a href="/mentions.php"> Mentions Légales</a>
+            <a href="/pages/mentions.php"> Mentions Légales</a>
     </div>
     </div>
 </footer>

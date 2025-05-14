@@ -9,41 +9,31 @@ require_once ROOT_PATH . "/templates/header.php"; ?>
             </h2>
             <div class="relative mb-4">
                 <label for="EmailInput" class="leading-7 text-sm">
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit; font-size:1rem; ">Email</font>
-                    </font>
+                    <font style="vertical-align: inherit; font-size:1rem; ">Email</font>
                 </label>
                 <input type="email" id="EmailInput" name="EmailInput" class="w-full bg-stone-300 focus:bg-stone-200 rounded border text-black outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative mb-4">
                 <label for="NomInput" class="leading-7 text-sm">
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit; font-size:1rem; ">Nom</font>
-                    </font>
+                    <font style="vertical-align: inherit; font-size:1rem; ">Nom</font>
                 </label>
                 <input type="text" id="NomInput" name="NomInput" class="w-full bg-stone-300 focus:bg-stone-200 rounded border text-black outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative mb-4">
                 <label for="PrenomInput" class="leading-7 text-sm">
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit; font-size:1rem; ">Prenom</font>
-                    </font>
+                    <font style="vertical-align: inherit; font-size:1rem; ">Prenom</font>
                 </label>
                 <input type="text" id="PrenomInput" name="PrenomInput" class="w-full bg-stone-300 focus:bg-stone-200 rounded border text-black outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative mb-4">
                 <label for="PseudoInput" class="leading-7 text-sm">
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit; font-size:1rem; ">Pseudo</font>
-                    </font>
+                    <font style="vertical-align: inherit; font-size:1rem; ">Pseudo</font>
                 </label>
                 <input type="text" id="PseudoInput" name="PseudoInput" class="w-full bg-stone-300 focus:bg-stone-200 rounded border text-black outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative mb-4">
                 <label for="PasswordInput" class="leading-7 text-sm">
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit; font-size:1rem ">Mot de passe</font>
-                    </font>
+                    <font style="vertical-align: inherit; font-size:1rem ">Mot de passe</font>
                 </label>
                 <input type="password" id="PasswordInput" name="PasswordInput" class="w-full bg-stone-300 focus:bg-stone-200 rounded border text-black outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 <div>
