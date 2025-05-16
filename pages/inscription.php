@@ -1,9 +1,10 @@
 <?php require_once dirname(__DIR__) . "/config.php";
-require_once ROOT_PATH . "/templates/header.php"; ?>
+require_once ROOT_PATH . "/templates/header.php";
+?>
 
 <section class="text-stone-950 body-font">
     <div class="container gap-8 px-5 py-24 mx-auto flex flex-wrap items-center">
-        <form id="formulaireInscription" class="lg:w-2/6 md:w-1/2 bg-stone-400 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+        <form action="/inscriptionPost.php" method="post" id="formulaireInscription" class="lg:w-2/6 md:w-1/2 bg-stone-400 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
             <h2 class="flex items-center justify-center text-lg font-medium title-font mb-5">
                 <font style="vertical-align: inherit;text-decoration:underline; font-family:Fira Code, monospace; font-size:2rem">Inscription</font>
             </h2>

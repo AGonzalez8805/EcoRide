@@ -1,19 +1,15 @@
--- CREATE DATABASE EcoRide;
+CREATE DATABASE EcoRide;
 USE EcoRide;
 -- Créer la table Utilisateur
-CREATE TABLE utilisateur(
+CREATE TABLE utilisateurs(
     id Int Auto_increment NOT NULL,
     nom Varchar (50) NOT NULL,
     prenom Varchar (50) NOT NULL,
     email Varchar (100) NOT NULL,
     password Varchar (255) NOT NULL,
-    telephone Int NOT NULL,
-    adresse Varchar (100) NOT NULL,
-    dateNaissance Date NOT NULL,
-    photo Blob NOT NULL,
     pseudo Varchar (50) NOT NULL,
-    role Varchar (50) NOT NULL,
-    credit Int NOT NULL,
+    role Varchar (50) NULL,
+    credit Int NULL,
     CONSTRAINT utilisateur_PK PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 -- Créer la table voiture
