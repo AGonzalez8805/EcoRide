@@ -2,7 +2,7 @@
 // require_once dirname(__DIR__) . "/config.php";
 // require_once ROOT_PATH . "/templates/header.php";
 
-// Configuration pour Docker - utiliser le nom du service MySQL défini dans docker-compose.yml
+
 $dsn = 'mysql:host=db;dbname=EcoRide'; // 'db' est le nom habituel du service MySQL dans docker-compose
 $username = 'Amelie';
 $password = 'Ag1805Sz0602@';
