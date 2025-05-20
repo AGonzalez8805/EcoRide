@@ -81,7 +81,7 @@ function validateConfirmationPassword(inputPwd, inputConfirmPwd) {
     }
 }
 
-
+// Validation Nom,Prenom et Pseudo
 function validateRequired(input) {
     if (input.value != '') {
         input.classList.add("border-green-600");

@@ -36,7 +36,11 @@ try {
     $insertStmt->bindParam(':pseudo', $PseudoInputForm);
     $insertStmt->bindParam(':password', $hashedPassword);
     $insertStmt->execute();
-    echo "Bienvenue chez EcoRide";
+    // Redirection vers la page de connexion après inscription réussie
+    header("Location: /pages/connexion.php?success=inscription");
+    exit();
 } catch (PDOException $e) {
-    echo "Erreur de l'inscription : " . $e->getMessage();
+    // Redirection vers la page d'inscription avec un message d'erreur
+    header("Location: inscription.php?error=database_error");
+    exit();
 }

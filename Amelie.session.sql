@@ -47,7 +47,7 @@ CREATE TABLE covoiturage(
 CREATE TABLE administrateur(
     id Int Auto_increment NOT NULL,
     pseudo Varchar (50) NOT NULL,
-    email Varchar (100) NOT NULL,
+    password Varchar (255) NOT NULL,
     CONSTRAINT administrateur_PK PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 -- Créer la table employe
