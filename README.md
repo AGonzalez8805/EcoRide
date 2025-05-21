@@ -1,11 +1,11 @@
 # EcoRide
 
-Description
+##Description
 EcoRide est une plateforme de covoiturage écologique qui vise à réduire l'impact environnemental des déplacements. La mission est de devenir la principale plateforme de covoiturage pour les voyageurs soucieux de l'environnement et ceux qui recherchent une solution économique pour leurs dépalcement en voiture.
 
-1/Technologies utilisées:
+##1/Technologies utilisées:
 
-FrontEnd:
+###FrontEnd:
 
 HTML= Choix standard pour le développement web, utilisé pour la structure et le contenu;
 
@@ -17,15 +17,15 @@ PHP = Bien que principalement un langage backend, il est utilisé ici pour la g�
 
 JavaScript = Utilisé pour ajouter de l'interactivité et du dynamisme aux pages web côté client.
 
-BackEnd:
+###BackEnd:
 
 PHP = Utilisé pour la logique serveur, la gestion des données, les requêtes à la base de données et l'API. Choix justifié par sa maturité, sa grande communauté et sa facilité d'intégration avec MySQL.
 
-Base de données:
+###Base de données:
 
 Mysql = Base de données relationnelle utilisée pour stocker les données de l'application. Choix motivé par sa popularité, sa compatibilité avec PHP.
 
-Serveur:
+###Serveur:
 
 Docker & Docker Compose = Choix clé pour la conteneurisation de l'application. Docker permet de créer des environnements isolés et reproductibles pour chaque composant de l'application (serveur web, base de données, etc.), assurant la cohérence entre les environnements de développement, de test et de production et simplifiant le déploiement. Docker Compose est utilisé pour définir et orchestrer ces conteneurs, facilitant la gestion de l'ensemble de l'application. L'utilisation de Docker a permis de résoudre les problèmes de dépendances et de configuration rencontrés avec XAMPP, et de garantir que l'application fonctionne de manière fiable sur différentes plateformes.
 
@@ -37,7 +37,7 @@ phpmyadmin = Utilisé pour l'admnistration de la base de données MySQL. Celà p
 
 MySQL = Base de données relationnelle utilisée pour stocker les données de l'application.
 
-Prérequis:
+###Prérequis:
 
 Pour installer et exécuter ce projet, vous aurez besoin de :
 
