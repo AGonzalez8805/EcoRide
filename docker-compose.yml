@@ -32,7 +32,7 @@ services:
     container_name: mysql-container
     environment:
       MYSQL_ROOT_PASSWORD: Ag1805Sz0602@
-      MYSQL_DATABASE: ecoride
+      MYSQL_DATABASE: EcoRide
       MYSQL_USER: Amelie
       MYSQL_PASSWORD: Ag1805Sz0602@
     ports:

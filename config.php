@@ -1,17 +1,15 @@
 <?php
 // Configuration de la base de données
-$host = 'db';
-$user = 'Amelie';
-$password = 'Ag1805Sz0602@';
-$database = 'ecoride';
+$config = parse_ini_file(__DIR__ . "/.env");
 
+try {
+    $conn = new mysqli($config["db_host"], $config["db_user"], $config["db_password"], $config["db_name"]);
 
-$conn = new mysqli($host, $user, $password, $database);
-
-
-if ($conn->connect_error) {
-
-    die("Je ne suis pas connecté: " . $conn->connect_error);
+    if ($conn->connect_error) {
+        die("Je ne suis pas connecté: " . $conn->connect_error);
+    }
+} catch (Exception $e) {
+    die("Erreur de connexion: " . $e->getMessage());
 }
 
 define('ROOT_PATH', __DIR__);

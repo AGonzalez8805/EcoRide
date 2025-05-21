@@ -54,7 +54,7 @@ require_once ROOT_PATH . "/templates/header.php";
             </button>
             <div class="text-center pt-3">
                 <font style="text-decoration: underline;">
-                    <a href="/pages/connexion.php">Vous avez déjà un compte ? Connecter-vous ici !</a>
+                    <a href="/pages/connexion.php">Vous avez déjà un compte ? Connectez-vous ici !</a>
                 </font>
             </div>
         </form>
