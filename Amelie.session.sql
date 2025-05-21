@@ -21,7 +21,7 @@ CREATE TABLE voiture(
     couleur Varchar (50) NOT NULL,
     marque Varchar (50) NOT NULL,
     datePremierImmatriculation Date NOT NULL,
-    id_utilisateur Int NOT NULL,
+    id_utilisateurs Int NOT NULL,
     CONSTRAINT voiture_PK PRIMARY KEY (id),
     CONSTRAINT voiture_utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id)
 ) ENGINE = InnoDB;
@@ -37,7 +37,7 @@ CREATE TABLE covoiturage(
     statut Varchar (50) NOT NULL,
     nbPlace Int NOT NULL,
     prixPersonne Float NOT NULL,
-    id_utilisateur Int NOT NULL,
+    id_utilisateurs Int NOT NULL,
     id_voiture Int NOT NULL,
     CONSTRAINT covoiturage_PK PRIMARY KEY (id),
     CONSTRAINT covoiturage_utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id),
@@ -66,9 +66,21 @@ CREATE TABLE avis(
     note Varchar (50) NOT NULL,
     statut Varchar (50) NOT NULL,
     datePublication Date NOT NULL,
-    id_utilisateur Int NOT NULL,
+    id_utilisateurs Int NOT NULL,
     id_employe Int NOT NULL,
     CONSTRAINT avis_PK PRIMARY KEY (id),
-    CONSTRAINT avis_utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id),
+    CONSTRAINT avis_utilisateur_FK FOREIGN KEY (id_utilisateurs) REFERENCES utilisateurs(id),
     CONSTRAINT avis_employe0_FK FOREIGN KEY (id_employe) REFERENCES employe(id)
+) ENGINE = InnoDB;
+CREATE TABLE role(
+    id Int Auto_increment NOT NULL,
+    description Varchar (50) NOT NULL,
+    CONSTRAINT role_PK PRIMARY KEY (id)
+) ENGINE = InnoDB;
+CREATE TABLE possede(
+    id Int NOT NULL,
+    id_utilisateurs Int NOT NULL,
+    CONSTRAINT possede_PK PRIMARY KEY (id, id_utilisateurs),
+    CONSTRAINT possede_role_FK FOREIGN KEY (id) REFERENCES role(id),
+    CONSTRAINT possede_utilisateur0_FK FOREIGN KEY (id_utilisateurs) REFERENCES utilisateurs(id)
 ) ENGINE = InnoDB;

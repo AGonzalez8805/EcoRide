@@ -1,10 +1,9 @@
 <?php
-$dsn = 'mysql:host=db;dbname=EcoRide';
-$username = 'user_php';
-$password = 'mq@2Rcrm';
 
 try {
-    $pdo = new PDO($dsn, $username, $password);
+    $config = parse_ini_file(__DIR__ . "/../.env");
+
+    $pdo = new PDO("mysql:dbname={$config["db_name"]};host={$config["db_host"]};charset=utf8mb4", $config["db_user"], $config["db_password"]);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Récupérer les données du formulaire d'inscription
