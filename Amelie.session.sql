@@ -74,7 +74,7 @@ CREATE TABLE avis(
 ) ENGINE = InnoDB;
 CREATE TABLE role(
     id Int Auto_increment NOT NULL,
-    description Varchar (50) NOT NULL,
+    nom Varchar (55) NOT NULL,
     CONSTRAINT role_PK PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 CREATE TABLE possede(
