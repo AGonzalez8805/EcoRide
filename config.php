@@ -1,4 +1,5 @@
 <?php
+
 // Configuration de la base de données
 $config = parse_ini_file(__DIR__ . "/.env");
 
