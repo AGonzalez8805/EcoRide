@@ -23,7 +23,7 @@ CREATE TABLE voiture(
     datePremierImmatriculation Date NOT NULL,
     id_utilisateurs Int NOT NULL,
     CONSTRAINT voiture_PK PRIMARY KEY (id),
-    CONSTRAINT voiture_utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id)
+    CONSTRAINT voiture_utilisateur_FK FOREIGN KEY (id_utilisateurs) REFERENCES utilisateurs(id)
 ) ENGINE = InnoDB;
 -- Créer la table covoiturage
 CREATE TABLE covoiturage(
@@ -40,7 +40,7 @@ CREATE TABLE covoiturage(
     id_utilisateurs Int NOT NULL,
     id_voiture Int NOT NULL,
     CONSTRAINT covoiturage_PK PRIMARY KEY (id),
-    CONSTRAINT covoiturage_utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id),
+    CONSTRAINT covoiturage_utilisateur_FK FOREIGN KEY (id_utilisateurs) REFERENCES utilisateurs(id),
     CONSTRAINT covoiturage_voiture0_FK FOREIGN KEY (id_voiture) REFERENCES voiture(id)
 ) ENGINE = InnoDB;
 -- Créer la table administrateur
@@ -72,11 +72,13 @@ CREATE TABLE avis(
     CONSTRAINT avis_utilisateur_FK FOREIGN KEY (id_utilisateurs) REFERENCES utilisateurs(id),
     CONSTRAINT avis_employe0_FK FOREIGN KEY (id_employe) REFERENCES employe(id)
 ) ENGINE = InnoDB;
+-- Créer la table role
 CREATE TABLE role(
     id Int Auto_increment NOT NULL,
     nom Varchar (55) NOT NULL,
     CONSTRAINT role_PK PRIMARY KEY (id)
 ) ENGINE = InnoDB;
+--
 CREATE TABLE possede(
     id Int NOT NULL,
     id_utilisateurs Int NOT NULL,
