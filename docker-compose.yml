@@ -9,17 +9,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-
-  webserver:
-    image: nginx:alpine
-    container_name: nginx
-    ports:
-      - "80:80"
-    volumes:
-      - ./:/var/www/html
-      - ./nginx/conf.d:/etc/nginx/conf.d
-    depends_on:
-      - php
     networks:
       - app-network
 
@@ -54,7 +43,6 @@ services:
 
 networks:
   app-network:
-    driver: bridge
 
 volumes:
   mysql-data:

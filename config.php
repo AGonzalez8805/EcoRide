@@ -13,4 +13,5 @@ try {
     die("Erreur de connexion: " . $e->getMessage());
 }
 
+
 define('ROOT_PATH', __DIR__);
