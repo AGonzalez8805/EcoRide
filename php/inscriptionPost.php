@@ -1,8 +1,8 @@
 <?php
+header("Content-Type: application/json");
 
 try {
     $config = parse_ini_file(__DIR__ . "/../.env");
-
     $pdo = new PDO("mysql:dbname={$config["db_name"]};host={$config["db_host"]};charset=utf8mb4", $config["db_user"], $config["db_password"]);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -19,13 +19,16 @@ try {
     $stmt->bindParam(':email', $EmailInputForm);
     $stmt->execute();
 
-    // Est-ce que l'utilisateur (mail) existe?
     if ($stmt->rowCount() > 0) {
-        die("Cette adresse email est déjà utilisée");
+        echo json_encode([
+            "status" => "erreur",
+            "message" => "Cette adresse email est déjà utilisée"
+        ]);
+        exit();
     }
-    // Hashage
+
     $hashedPassword = password_hash($PasswordInputForm, PASSWORD_DEFAULT);
-    // Insérer les données dans la base
+
     $insertQuery = "INSERT INTO utilisateurs (email, nom, prenom, pseudo, password) 
                 VALUES (:email, :nom, :prenom, :pseudo, :password)";
     $insertStmt = $pdo->prepare($insertQuery);
@@ -36,10 +39,16 @@ try {
     $insertStmt->bindParam(':password', $hashedPassword);
     $insertStmt->execute();
     // Redirection vers la page de connexion après inscription réussie
-    header("Location: /pages/connexion.php?success=inscription");
+    echo json_encode([
+        "status" => "succes",
+        "role" => "utilisateur"
+    ]);
     exit();
 } catch (PDOException $e) {
     // Redirection vers la page d'inscription avec un message d'erreur
-    header("Location: inscription.php?error=database_error");
+    echo json_encode([
+        "status" => "erreur",
+        "message" => "Erreur de base de données: " . $e->getMessage()
+    ]);
     exit();
 }
