@@ -1,42 +1,31 @@
 version: '3.8'
 
 services:
-  app:
-    build: .
-    container_name: php-fpm
+  php:
+    image: php:8.2-apache
+    container_name: Ecoride_php
+    ports:
+      - 90:80
     volumes:
       - ./:/var/www/html
-    expose:
-      - "9000"
+    build:
+      context: .
+      dockerfile: Dockerfile
     networks:
       - app-network
-    #Etablir la connexion avec MySQL
     depends_on:
       - db
-
-  webserver:
-    image: nginx:alpine
-    container_name: nginx
-    ports:
-      - "80:80"
-    volumes:
-      - ./:/var/www/html
-      - ./nginx/conf.d:/etc/nginx/conf.d
-    depends_on:
-      - app
-    networks:
-      - app-network
 
   db:
     image: mysql:latest
     container_name: mysql-container
     environment:
-      MYSQL_ROOT_PASSWORD: Ag1805Sz0602@
-      MYSQL_DATABASE: EcoRide
-      MYSQL_USER: Amelie
-      MYSQL_PASSWORD: Ag1805Sz0602@
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - "3306:3306"
+      - 3306:3306
     volumes:
       - mysql-data:/var/lib/mysql
     networks:
@@ -44,11 +33,11 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin-container
+    container_name: Ecoride_phpmyadmin
     environment:
-      PMA_HOST: db
-      PMA_USER: Amelie
-      PMA_PASSWORD: Ag1805Sz0602@
+      PMA_HOST: ${PMA_HOST}
+      PMA_USER: ${PMA_USER}
+      PMA_PASSWORD: ${PMA_PASSWORD}
     ports:
       - "8080:80"
     depends_on:
