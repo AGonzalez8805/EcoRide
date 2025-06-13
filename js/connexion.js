@@ -2,6 +2,15 @@ const inputUsername = document.getElementById("pseudo");
 const inputMdp = document.getElementById("password");
 const btnConnexion = document.getElementById("connexion");
 
+function validateForm() {
+    //activer / désactiver le bouton
+    if (inputUsername.value.trim() !== '' && inputMdp.value.trim() !== '') {
+        btnConnexion.disabled = false; // Active le bouton
+    } else {
+        btnConnexion.disabled = true; // Désactive le bouton
+    }
+}
+
 inputUsername.addEventListener("keyup", validateForm);
 inputMdp.addEventListener("keyup", validateForm);
 
@@ -22,9 +31,8 @@ btnConnexion.addEventListener("click", (event) => {
         .then(response => response.json())
         .then(data => {
             if (data.status === "success") {
-                alert("Connexion réussie en tant que " + data.role);
                 if (data.role === "admin") {
-                    window.location.href = "/admin/tableau_de_bord.php";
+                    window.location.href = "/admin/tableauDeBord.php";
                 } else {
                     window.location.href = "/index.php";
                 }

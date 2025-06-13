@@ -49,5 +49,5 @@ require_once ROOT_PATH . "/templates/header.php";
     </div>
 </section>
 
-
+<script src="/js/contact.js"></script>
 <?php require_once ROOT_PATH . "/templates/footer.php";  ?>

@@ -41,9 +41,11 @@ try {
         "status" => "error",
         "message" => "Identifiants incorrects"
     ]);
+    exit();
 } catch (PDOException $e) {
     echo json_encode([
         "status" => "error",
         "message" => $e->getMessage()
     ]);
+    exit();
 }

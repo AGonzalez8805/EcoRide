@@ -64,6 +64,6 @@ require_once ROOT_PATH . "/templates/header.php";
     </div>
 </section>
 
-
+<script src="/js/inscription.js"></script>
 
 <?php require_once ROOT_PATH . "/templates/footer.php";  ?>

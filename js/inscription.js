@@ -48,8 +48,7 @@ btnValidation.addEventListener("click", (event) => {
         })
         .then(data => {
             if (data.status === "succes") {
-                alert("Inscription réussi !");
-                window.location.href = "/index.php";
+                window.location.href = "/pages/connexion.php";
             } else {
                 alert("Erreur : " + (data.message || "vérifier tous les champs !"));
                 btnValidation.disabled = false;

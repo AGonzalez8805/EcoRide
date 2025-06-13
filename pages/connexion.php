@@ -35,5 +35,5 @@ require_once ROOT_PATH . "/templates/header.php";
         </form>
     </div>
 </section>
-
+<script src="/js/connexion.js"></script>
 <?php require_once ROOT_PATH . "/templates/footer.php"; ?>

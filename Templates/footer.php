@@ -9,9 +9,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <script src="https://kit.fontawesome.com/f5ae6a01b5.js" crossorigin="anonymous"></script>
-<script src="/js/inscription.js"></script>
-<script src="/js/connexion.js"></script>
-<script src="/js/contact.js"></script>
 </body>
 
 </html>
