@@ -1,12 +1,14 @@
 <?php
 header("Content-Type: application/json");
+session_start();
+
 
 try {
     $config = parse_ini_file(__DIR__ . "/../.env");
     $pdo = new PDO("mysql:dbname={$config["db_name"]};host={$config["db_host"]};charset=utf8mb4", $config["db_user"], $config["db_password"]);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $pseudoForm = $_POST['pseudo'];
+    $pseudoForm = trim($_POST['pseudo']);
     $passwordForm = $_POST['password'];
 
     // Vérification administrateur
@@ -17,8 +19,8 @@ try {
     $adminUser = $stmtAdmin->fetch(PDO::FETCH_ASSOC);
 
     if ($adminUser && password_verify($passwordForm, $adminUser['password'])) {
-        session_start();
         $_SESSION['admin_id'] = $adminUser['id'];
+        $_SESSION['admin_pseudo'] = $pseudoForm;
         echo json_encode(["status" => "success", "role" => "admin"]);
         exit();
     }
@@ -31,8 +33,10 @@ try {
     $normalUser = $stmtUser->fetch(PDO::FETCH_ASSOC);
 
     if ($normalUser && password_verify($passwordForm, $normalUser['password'])) {
-        session_start();
         $_SESSION['user_id'] = $normalUser['id'];
+        $_SESSION['user_nom'] = $normalUser['nom'];
+        $_SESSION['user_prenom'] = $normalUser['prenom'];
+        $_SESSION['user_pseudo'] = $pseudoForm;
         echo json_encode(["status" => "success", "role" => "user"]);
         exit();
     }

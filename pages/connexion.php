@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once dirname(__DIR__) . "/config.php";
 require_once ROOT_PATH . "/templates/header.php";
 ?>
@@ -24,7 +25,7 @@ require_once ROOT_PATH . "/templates/header.php";
                 </label>
                 <input type="password" id="password" name="password" class="w-full bg-stone-300 focus:bg-stone-200 rounded border outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
-            <button type="submit" id="connexion" class="bg-stone-300 rounded-full border-x-6 border-green-700 py-2 px-8 focus:outline-none hover:bg-stone-200 rounded text-lg">
+            <button type="button" id="connexion" class="bg-stone-300 rounded-full border-x-6 border-green-700 py-2 px-8 focus:outline-none hover:bg-stone-200 rounded text-lg">
                 <font style="vertical-align: inherit;">C'est parti</font>
             </button>
             <div class="text-center pt-3">

@@ -15,6 +15,7 @@ services:
       - app-network
     depends_on:
       - db
+      - mongodb
 
   db:
     image: mysql:latest
@@ -31,6 +32,17 @@ services:
     networks:
       - app-network
 
+  mongodb:
+    image: mongo:8.0.10
+    container_name: EcoRide_mongodb
+    ports:
+      - "8090:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+
+
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: Ecoride_phpmyadmin
@@ -45,11 +57,12 @@ services:
     networks:
       - app-network
 
+
 networks:
   app-network:
     driver: bridge
 
 volumes:
   mysql-data:
-
+  mongodb_data:
 
