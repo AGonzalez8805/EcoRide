@@ -1,4 +1,3 @@
-// Sélection des éléments du formulaire
 const inputNom = document.getElementById("NomInput");
 const inputPrenom = document.getElementById("PrenomInput");
 const inputMail = document.getElementById("EmailInput");
@@ -15,6 +14,54 @@ inputPseudo.addEventListener("keyup", validateForm);
 inputPassword.addEventListener("keyup", validateForm);
 inputValidationPassword.addEventListener("keyup", validateForm);
 
+//Ecouteur pour la gestion du clic sur le bouton
+btnValidation.addEventListener("click", (event) => {
+    event.preventDefault();
+
+
+    if (!validateForm()) {
+        alert("Veuillez corriger les erreurs dans le formulaire");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("NomInput", inputNom.value);
+    formData.append("PrenomInput", inputPrenom.value);
+    formData.append("EmailInput", inputMail.value);
+    formData.append("PseudoInput", inputPseudo.value);
+    formData.append("PasswordInput", inputPassword.value);
+    formData.append("ValidatePasswordInput", inputValidationPassword.value);
+
+    // Désactiver le bouton pendant l'inscription
+    btnValidation.disabled = true;
+    btnValidation.textContent = "Inscription en cours...";
+
+    fetch("/php/inscriptionPost.php", {
+        method: "Post",
+        body: formData
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP : ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.status === "succes") {
+                window.location.href = "/pages/connexion.php";
+            } else {
+                alert("Erreur : " + (data.message || "vérifier tous les champs !"));
+                btnValidation.disabled = false;
+                btnValidation.textContent = "S'inscrire";
+            }
+        })
+        .catch(error => {
+            console.error("Erreur lors de l'opération fetch :", error);
+            alert("Une erreur de communication est survenue. Veuillez réessayer.");
+            btnValidation.disabled = false;
+            btnValidation.textContent = "S'inscrire";
+        });
+});
 // Fonction permettant de valider tout le formulaire
 function validateForm() {
     const nomOk = validateRequired(inputNom);
@@ -24,14 +71,10 @@ function validateForm() {
     const passwordOk = validatePassword(inputPassword);
     const passwordConfirmOk = validateConfirmationPassword(inputPassword, inputValidationPassword);
 
-    if (nomOk && prenomOk && pseudoOk && mailOk && passwordOk && passwordConfirmOk) {
-        btnValidation.disabled = false;
-    }
-    else {
-        btnValidation.disabled = true;
-    }
+    const isValid = nomOk && prenomOk && pseudoOk && mailOk && passwordOk && passwordConfirmOk;
+    btnValidation.disabled = !isValid;
+    return isValid;
 }
-
 // Validation mail
 function validateMail(input) {
     // Définir mon regex

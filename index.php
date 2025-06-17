@@ -1,6 +1,8 @@
 <?php
-define('ROOT_PATH', __DIR__);
-require_once ROOT_PATH . "/templates/header.php";
+
+session_start();
+
+require_once "templates/header.php";
 ?>
 
 <!-- Recherche trajet -->

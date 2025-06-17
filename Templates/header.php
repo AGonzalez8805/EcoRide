@@ -21,8 +21,17 @@
             <nav class=" md:ml-auto md:mr-auto flex flex-wrap items-center justify-center">
                 <a href="/pages/covoiturage.php" class="mr-5 hover:text-stone-200">Covoiturage</a>
                 <a href="/pages/contact.php" class="mr-5 hover:text-stone-200">Contact</a>
-                <a href="/pages/connexion.php" class="mr-5 hover:text-stone-200">Connexion</a>
-                <button class="mr5 hover:text-stone-200" id="deconnexion"> Deconnexion</button>
+
+                <?php if (isset($_SESSION['admin_id'])): ?>
+                    <a href="/admin/tableaudebord.php" class="mr-5 hover:text-stone-200">Tableau de bord</a>
+                    <a href="/pages/deconnexion.php" class="mr-5 hover:text-stone-200">Déconnexion</a>
+                <?php elseif (isset($_SESSION['user_id'])): ?>
+                    <a href="/pages/moncompte.php" class="mr-5 hover:text-stone-200">Mon compte</a>
+                    <a href="/pages/deconnexion.php" class="mr-5 hover:text-stone-200">Déconnexion</a>
+                <?php else: ?>
+                    <a href="/pages/connexion.php" class="mr-5 hover:text-stone-200">Connexion</a>
+                <?php endif; ?>
+
             </nav>
         </div>
     </header>

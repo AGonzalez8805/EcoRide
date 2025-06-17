@@ -3,7 +3,7 @@ services:
     image: php:8.2-apache
     container_name: Ecoride_php
     ports:
-      - 9000:80
+      - 90:80
     volumes:
       - ./:/var/www/html
     build:
@@ -11,29 +11,43 @@ services:
       dockerfile: Dockerfile
     networks:
       - app-network
+    depends_on:
+      - db
+      - mongodb
 
   db:
     image: mysql:latest
     container_name: mysql-container
     environment:
-      MYSQL_ROOT_PASSWORD: Ag1805Sz0602@
-      MYSQL_DATABASE: EcoRide
-      MYSQL_USER: Amelie
-      MYSQL_PASSWORD: Ag1805Sz0602@
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - "3306:3306"
+      - 3306:3306
     volumes:
       - mysql-data:/var/lib/mysql
     networks:
       - app-network
 
+  mongodb:
+    image: mongo:8.0.10
+    container_name: EcoRide_mongodb
+    ports:
+      - "8090:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+
+
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin-container
+    container_name: Ecoride_phpmyadmin
     environment:
-      PMA_HOST: db
-      PMA_USER: Amelie
-      PMA_PASSWORD: Ag1805Sz0602@
+      PMA_HOST: ${PMA_HOST}
+      PMA_USER: ${PMA_USER}
+      PMA_PASSWORD: ${PMA_PASSWORD}
     ports:
       - "8080:80"
     depends_on:
@@ -41,10 +55,11 @@ services:
     networks:
       - app-network
 
+
 networks:
   app-network:
 
 volumes:
   mysql-data:
-
+  mongodb_data:
 

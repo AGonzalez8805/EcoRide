@@ -2,52 +2,46 @@ const inputUsername = document.getElementById("pseudo");
 const inputMdp = document.getElementById("password");
 const btnConnexion = document.getElementById("connexion");
 
-// Ecouteurs d'évènements pour la validation en temps réel
+function validateForm() {
+    //activer / désactiver le bouton
+    if (inputUsername.value.trim() !== '' && inputMdp.value.trim() !== '') {
+        btnConnexion.disabled = false; // Active le bouton
+    } else {
+        btnConnexion.disabled = true; // Désactive le bouton
+    }
+}
+
 inputUsername.addEventListener("keyup", validateForm);
 inputMdp.addEventListener("keyup", validateForm);
 
-// Fonction permettant de valider tout le formulaire
-function validateForm() {
-    const pseudoOk = validateRequired(inputUsername);
-    const passwordOk = validatePassword(inputMdp);
+btnConnexion.addEventListener("click", (event) => {
+    event.preventDefault();
 
-    if (pseudoOk && passwordOk) {
-        btnConnexion.disabled = false;
-    } else {
-        btnConnexion.disabled = true;
-    }
-}
+    const pseudo = inputUsername.value;
+    const password = inputMdp.value;
 
-// Validation mot de passe
-function validatePassword(input) {
-    // Définir mon regex
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{9,}$/;
-    const passwordUser = input.value;
-    if (passwordUser.match(passwordRegex)) {
-        input.classList.add("border-green-600");
-        input.classList.remove("border-red-600");
-        return true;
-    }
-    else {
-        input.classList.remove("border-green-600");
-        input.classList.add("border-red-600");
-        return false;
-    }
-}
+    const formData = new FormData();
+    formData.append("pseudo", pseudo);
+    formData.append("password", password);
 
-//Validation pseudo
-function validateRequired(input) {
-    if (input.value != '') {
-        input.classList.add("border-green-600");
-        input.classList.remove("border-red-600");
-        return true;
-    }
-    else {
-        input.classList.remove("border-green-600");
-        input.classList.add("border-red-600");
-        return false;
-    }
-}
-
-
-
+    fetch("/php/connexionPost.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                if (data.role === "admin") {
+                    window.location.href = "/admin/tableauDeBord.php";
+                } else {
+                    window.location.href = "/index.php";
+                }
+            } else {
+                alert("Erreur : " + data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Erreur de connexion :", error);
+            alert("Erreur réseau");
+        });
+});
