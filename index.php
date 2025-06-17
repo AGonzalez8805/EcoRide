@@ -1,8 +1,9 @@
 <?php
 
 session_start();
+define('ROOT_PATH', __DIR__);
 
-require_once "templates/header.php";
+require_once "Templates/header.php";
 ?>
 
 <!-- Recherche trajet -->
@@ -84,5 +85,5 @@ require_once "templates/header.php";
 
 
 <?php
-require_once ROOT_PATH . "/templates/footer.php";
+require_once ROOT_PATH . "/Templates/footer.php";
 ?>
