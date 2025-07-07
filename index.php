@@ -1,8 +1,6 @@
 <?php
-
 session_start();
 define('ROOT_PATH', __DIR__);
-
 require_once "Templates/header.php";
 ?>
 
@@ -79,10 +77,6 @@ require_once "Templates/header.php";
         </div>
     </div>
 </section>
-
-
-
-
 
 <?php
 require_once ROOT_PATH . "/Templates/footer.php";

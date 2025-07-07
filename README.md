@@ -68,9 +68,10 @@ Pour arrêter l'application:
 `docker-compose down`
 
 ## Arborescence
-ecoride/ <br>
+ECORIDE/ <br>
 ├── admin/<br>
-│      └── membres.php<br>
+│      ├── membres.php<br>
+|      ├── tableauDeBord.php<br>
 ├── Asset/<br>
 │   ├── css/<br>
 │   | └── style.css<br>
@@ -82,11 +83,8 @@ ecoride/ <br>
 ├── js/ <br> 
 │    ├── accueil.js <br>
 │    ├── connexion.js <br>
-│    ├── inscription.js <br>
-│    └── script.js <br>
-├── nginx/ <br>
-│    └── conf.d/ <br>
-│    └── default.conf <br>
+│    ├── contact.js <br>
+│    └── inscription.js <br>
 ├── pages/ <br>
 │   ├── connexion.php <br>
 │   ├── contact.php <br>
@@ -96,16 +94,19 @@ ecoride/ <br>
 │   ├── mentions.php <br>
 │   └── moncompte.php <br>
 ├── php/ <br>
-│    ├── connexioPost.php <br>
+│    ├── connexionPost.php <br>
+|    ├── contactPost.php<br>
 │    └── inscriptionPost.php <br>
 ├── Templates/ <br>
 │    ├── footer.php <br>
 │    └── header.php <br>
+├── vendor/ <br>
 ├── .env <br>
 ├── .env.example <br>
 ├── .gitignore <br>
 ├── Amelie.session.sql <br>
 ├── composer.json <br>
+├── composer.lock <br>
 ├── config.php <br>
 ├── docker-compose.yml <br>
 ├── Dockerfile <br>
