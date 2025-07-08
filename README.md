@@ -105,8 +105,6 @@ ECORIDE/ <br>
 ├── .env.example <br>
 ├── .gitignore <br>
 ├── Amelie.session.sql <br>
-├── composer.json <br>
-├── composer.lock <br>
 ├── config.php <br>
 ├── docker-compose.yml <br>
 ├── Dockerfile <br>
