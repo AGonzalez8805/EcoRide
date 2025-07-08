@@ -3,7 +3,7 @@
 $config = parse_ini_file(__DIR__ . "/.env");
 
 try {
-    $conn = new mysqli($config["db_host"], $config["db_user"], $config["db_password"], $config["db_name"]);
+    $conn = new mysqli($config["DB_HOST"], $config["DB_USER"], $config["DB_PASSWORD"], $config["DB_NAME"]);
 
     if ($conn->connect_error) {
         die("Je ne suis pas connecté: " . $conn->connect_error);

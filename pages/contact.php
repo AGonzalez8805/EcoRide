@@ -29,6 +29,12 @@ require_once ROOT_PATH . "/templates/header.php";
                             <input type="email" id="Email" name="Email" class="w-full bg-stone-300 border focus:border-green-700 focus:bg-stone-200 focus:bg-transparent outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="Sujet" class="leading-7">Sujet</label>
+                            <input type="text" id="Sujet" name="Sujet" class="w-full bg-stone-300 border focus:border-green-700 focus:bg-stone-200 focus:bg-transparent outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
                     <div class="p-2 w-full">
                         <div class="relative">
                             <label for="Message" class="leading-7">Message</label>
